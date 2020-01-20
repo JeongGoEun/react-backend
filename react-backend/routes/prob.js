@@ -1,20 +1,21 @@
-import {mdb} from './database/db-config'
 var express = require("express");
 var router = express.Router();
 
+var mdb = require('./database/db-config.json');
+
 const mariadb = require("mariadb");
 const pool = mariadb.createPool({
-    host: mdb.config.host,
-    user: mdb.config.user,
-    password: mdb.config.password,
-    database: mdb.contig.database
+    host: mdb.host,
+    user: mdb.user,
+    password: mdb.password,
+    database: mdb.database
 })
 
 /* GET users listing. */
 // req 객체를 처리한 후 res를 리턴함
 router.get("/", function(req, res, next) {
     pool.getConnection().then(conn => {
-        conn.query("select * from info").then(rows => {
+        conn.query("select * from prob_info_detail").then(rows => {
             console.log(rows);
             res.send(rows);
             conn.release();

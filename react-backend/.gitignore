@@ -1,4 +1,4 @@
-routes/database/db-config.js
+routes/database/db-config.json
 package-lock.json
 build/
 node_modules/
