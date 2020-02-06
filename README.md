@@ -6,6 +6,6 @@ test backend connect to maria db
 ## server start
 ```
 cd react-backend
-npm install
+npm install && npm audit fix
 npm start
 ```
