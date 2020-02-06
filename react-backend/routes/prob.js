@@ -15,7 +15,7 @@ const pool = mariadb.createPool({
 // req 객체를 처리한 후 res를 리턴함
 router.get("/", function(req, res, next) {
     pool.getConnection().then(conn => {
-        conn.query("select * from prob_info_detail").then(rows => {
+        conn.query("select * from prob_info").then(rows => {
             console.log(rows);
             res.send(rows);
             conn.release();
