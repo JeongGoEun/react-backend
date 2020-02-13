@@ -17,6 +17,9 @@ router.get("/", function(req, res, next) {
     pool.getConnection().then(conn => {
         conn.query("select * from prob_info").then(rows => {
             console.log(rows);
+            // for cors
+            //res.header("Access-Control-Allow-Origin", "*");
+            //res.header("Access-Control-Allow-Headers", "X-Requested-With");
             res.send(rows);
             conn.release();
         })
